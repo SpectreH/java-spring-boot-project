@@ -18,23 +18,25 @@ repositories {
 }
 
 dependencies {
-    // Use JUnit test framework.
-    testImplementation(libs.junit)
-
-    // This dependency is used by the application.
     implementation(libs.guava)
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-validation")
-
     runtimeOnly("org.postgresql:postgresql")
     implementation("org.liquibase:liquibase-core")
+
+    implementation("org.mapstruct:mapstruct:1.6.2")
+    annotationProcessor("org.mapstruct:mapstruct-processor:1.6.2")
+    testAnnotationProcessor("org.mapstruct:mapstruct-processor:1.6.2")
 
     compileOnly("org.projectlombok:lombok")
     annotationProcessor("org.projectlombok:lombok")
 
+    annotationProcessor("org.projectlombok:lombok-mapstruct-binding:0.2.0")
+
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation(libs.junit)
 }
 
 // Apply a specific Java toolchain to ease working on different environments.

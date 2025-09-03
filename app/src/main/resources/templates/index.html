@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Sectors Form</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style>
+        :root { --gap: 1rem; --error: #b00020; }
+        body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 2rem; }
+        h3 { margin-bottom: 0.5rem; }
+        form { max-width: 720px; }
+        .row { margin: var(--gap) 0; }
+        label { font-weight: 600; display: inline-block; margin-bottom: .25rem; }
+        input[type="text"] { width: 100%; max-width: 420px; padding: .5rem; }
+        select { width: 100%; max-width: 420px; }
+        .error { color: var(--error); margin-top: .25rem; font-size: .95rem; }
+        .success { color: #157347; font-weight: 600; margin-left: .5rem; }
+        .actions { display: flex; align-items: center; gap: .75rem; }
+        button { padding: .5rem 1rem; }
+    </style>
+</head>
+<body>
+<h3>Please enter your name and pick the Sectors you are currently involved in.</h3>
+
+<form th:action="@{/save}" method="post" th:object="${form}" novalidate>
+    <div class="row">
+        <label for="name">Name</label><br/>
+        <input id="name" type="text" th:field="*{name}" required>
+        <div class="error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+    </div>
+
+    <div class="row">
+        <label for="sectors">Sectors</label><br/>
+        <select id="sectors" th:field="*{sectorValues}" multiple size="12" required>
+            <option th:each="s : ${sectors}"
+                    th:value="${s.sectorValue}"
+                    th:text="${s.label}">
+            </option>
+        </select>
+        <div class="error" th:if="${#fields.hasErrors('sectorValues')}" th:errors="*{sectorValues}"></div>
+    </div>
+
+    <div class="row">
+        <label>
+            <input type="checkbox" th:field="*{agree}" required>
+            Agree to terms
+        </label>
+        <div class="error" th:if="${#fields.hasErrors('agree')}" th:errors="*{agree}"></div>
+    </div>
+
+    <div class="row actions">
+        <button type="submit">Save</button>
+        <span class="success" th:if="${saved}">Saved!</span>
+    </div>
+</form>
+</body>
+</html>
