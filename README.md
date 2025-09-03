@@ -51,7 +51,7 @@ From the repo root:
 ./gradlew :app:bootRun
 ```
 
-The app will start on `http://localhost:8080` by default. Use environment variables (below) to point it at your DB.
+The app will start on `http://localhost:8080` by default.
 
 ---
 
