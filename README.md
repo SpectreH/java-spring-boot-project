@@ -48,7 +48,6 @@ Open:
 From the repo root:
 
 ```bash
-# Run via Spring Boot plugin
 ./gradlew :app:bootRun
 ```
 
