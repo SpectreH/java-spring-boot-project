@@ -1,0 +1,57 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001-create-tables
+      author: Denni Karin
+      changes:
+        - createTable:
+            tableName: sectors
+            columns:
+              - column: { name: id, type: BIGSERIAL, constraints: { primaryKey: true, nullable: false } }
+              - column: { name: sector_value, type: BIGINT, constraints: { nullable: false, unique: true } }
+              - column: { name: name, type: VARCHAR(255), constraints: { nullable: false } }
+              - column: { name: level, type: INT, constraints: { nullable: false } }
+
+        - createTable:
+            tableName: submissions
+            columns:
+              - column: { name: id, type: BIGSERIAL, constraints: { primaryKey: true, nullable: false } }
+              - column: { name: name, type: VARCHAR(255), constraints: { nullable: false } }
+              - column: { name: agree, type: BOOLEAN, constraints: { nullable: false } }
+              - column: { name: session_id, type: VARCHAR(120), constraints: { nullable: false, unique: true } }
+
+        - createTable:
+            tableName: submission_sectors
+            columns:
+              - column: { name: submission_id, type: BIGINT, constraints: { nullable: false } }
+              - column: { name: sector_id, type: BIGINT, constraints: { nullable: false } }
+        - addPrimaryKey:
+            tableName: submission_sectors
+            columnNames: submission_id, sector_id
+            constraintName: pk_submission_sectors
+        - addForeignKeyConstraint:
+            baseTableName: submission_sectors
+            baseColumnNames: submission_id
+            referencedTableName: submissions
+            referencedColumnNames: id
+            constraintName: fk_ss_submission
+            onDelete: CASCADE
+        - addForeignKeyConstraint:
+            baseTableName: submission_sectors
+            baseColumnNames: sector_id
+            referencedTableName: sectors
+            referencedColumnNames: id
+            constraintName: fk_ss_sector
+  - changeSet:
+      id: 002-load-sectors
+      author: Denni Karin
+      changes:
+        - loadData:
+            tableName: sectors
+            file: classpath:db/changelog/data/sectors.csv
+            separator: ";"
+            encoding: UTF-8
+            quotchar: '"'
+            columns:
+              - column: { header: sector_value, name: sector_value, type: NUMERIC }
+              - column: { header: name,         name: name,         type: STRING }
+              - column: { header: level,        name: level,        type: NUMERIC }

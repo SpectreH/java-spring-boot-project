@@ -1,0 +1,80 @@
+sector_value;name;level
+1;Manufacturing;0
+19;Construction materials;1
+18;Electronics and Optics;1
+6;Food and Beverage;1
+342;Bakery & confectionery products;2
+43;Beverages;2
+42;Fish & fish products;2
+40;Meat & meat products;2
+39;Milk & dairy products;2
+437;Other;2
+378;Sweets & snack food;2
+13;Furniture;1
+389;Bathroom/sauna;2
+385;Bedroom;2
+390;Children’s room;2
+98;Kitchen;2
+101;Living room;2
+392;Office;2
+394;Other (Furniture);2
+341;Outdoor;2
+99;Project furniture;2
+12;Machinery;1
+94;Machinery components;2
+91;Machinery equipment/tools;2
+224;Manufacture of machinery;2
+97;Maritime;2
+271;Aluminium and steel workboats;3
+269;Boat/Yacht building;3
+230;Ship repair and conversion;3
+93;Metal structures;2
+508;Other;2
+227;Repair and maintenance service;2
+11;Metalworking;1
+67;Construction of metal structures;2
+263;Houses and buildings;2
+267;Metal products;2
+542;Metal works;2
+75;CNC-machining;3
+62;Forgings, Fasteners;3
+69;Gas, Plasma, Laser cutting;3
+66;MIG, TIG, Aluminum welding;3
+9;Plastic and Rubber;1
+54;Packaging;2
+556;Plastic goods;2
+559;Plastic processing technology;2
+55;Blowing;3
+57;Moulding;3
+53;Plastics welding and processing;3
+560;Plastic profiles;2
+5;Printing;1
+148;Advertising;2
+150;Book/Periodicals printing;2
+145;Labelling and packaging printing;2
+7;Textile and Clothing;1
+44;Clothing;2
+45;Textile;2
+8;Wood;1
+337;Other (Wood);2
+51;Wooden building materials;2
+47;Wooden houses;2
+3;Other;0
+37;Creative industries;1
+29;Energy technology;1
+33;Environment;1
+2;Service;0
+25;Business services;1
+35;Engineering;1
+28;Information Technology and Telecommunications;1
+581;Data processing, Web portals, E-marketing;2
+576;Programming, Consultancy;2
+121;Software, Hardware;2
+122;Telecommunications;2
+22;Tourism;1
+141;Translation services;1
+21;Transport and Logistics;1
+111;Air;2
+114;Rail;2
+112;Road;2
+113;Water;2
