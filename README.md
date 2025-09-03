@@ -5,7 +5,7 @@ A production-ready Spring Boot service for Helmes Test task built with Gradle, c
 ## Prerequisites
 
 - **Java 21** (only needed for local Gradle runs)
-- **Docker** and **Docker Compose** (v2)
+- **Docker** and **Docker Compose**
 
 The project is organized as a multi-module Gradle build. The main Spring Boot app lives under `app/`.
 
