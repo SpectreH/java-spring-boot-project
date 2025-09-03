@@ -6,23 +6,21 @@
  */
 
 plugins {
-    // Apply the application plugin to add support for building a CLI application in Java.
     application
     id("org.springframework.boot") version "3.3.2"
     id("io.spring.dependency-management") version "1.1.5"
 }
 
 repositories {
-    // Use Maven Central for resolving dependencies.
     mavenCentral()
 }
 
 dependencies {
-    implementation(libs.guava)
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-validation")
+
     runtimeOnly("org.postgresql:postgresql")
     implementation("org.liquibase:liquibase-core")
 
@@ -32,14 +30,9 @@ dependencies {
 
     compileOnly("org.projectlombok:lombok")
     annotationProcessor("org.projectlombok:lombok")
-
     annotationProcessor("org.projectlombok:lombok-mapstruct-binding:0.2.0")
-
-    testImplementation("org.springframework.boot:spring-boot-starter-test")
-    testImplementation(libs.junit)
 }
 
-// Apply a specific Java toolchain to ease working on different environments.
 java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(21)
@@ -47,6 +40,5 @@ java {
 }
 
 application {
-    // Define the main class for the application.
     mainClass = "org.example.App"
 }

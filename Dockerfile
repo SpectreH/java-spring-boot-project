@@ -1,7 +1,7 @@
 FROM gradle:8.8-jdk21 AS builder
 WORKDIR /home/gradle/src
 COPY . .
-RUN gradle clean bootJar -x test
+RUN gradle clean bootJar
 
 FROM eclipse-temurin:21-jre
 WORKDIR /app
